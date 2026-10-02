@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A simple To-Do app built with HTML, CSS and JavaScript">
+  <title>To-Do App</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app">
+    <h1 class="app-title">My To-Do List</h1>
+
+    <!-- Add task form (Enter key works automatically) -->
+    <form id="task-form" class="task-form">
+      <input
+        type="text"
+        id="task-input"
+        class="task-input"
+        placeholder="Add a new task..."
+        autocomplete="off"
+        maxlength="100"
+      >
+      <button type="submit" id="add-btn" class="add-btn">Add task</button>
+    </form>
+
+    <!-- Filter buttons -->
+    <div class="filters" id="filters">
+      <button type="button" class="filter-btn active" data-filter="all">All</button>
+      <button type="button" class="filter-btn" data-filter="active">Active</button>
+      <button type="button" class="filter-btn" data-filter="done">Done</button>
+    </div>
+
+    <!-- Tasks will be added here by JavaScript -->
+    <ul id="task-list" class="task-list"></ul>
+
+    <!-- Shown when there is nothing to display -->
+    <p id="empty-message" class="empty-message">No tasks yet. Add your first task above.</p>
+
+    <!-- Footer: task count and clear button -->
+    <div class="app-footer">
+      <span id="task-count" class="task-count">0 tasks left</span>
+      <button type="button" id="clear-completed" class="clear-btn">Clear completed</button>
+    </div>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
