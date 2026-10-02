@@ -9,19 +9,46 @@
 </head>
 <body>
   <main class="app">
-    <h1 class="app-title">My To-Do List</h1>
+    <header class="app-header">
+      <h1 class="app-title">My To-Do List</h1>
+      <button type="button" id="theme-toggle" class="theme-toggle">Dark mode</button>
+    </header>
 
-    <!-- Add task form (Enter key works automatically) -->
+    <!-- Progress -->
+    <div class="progress-wrap">
+      <p id="progress-text" class="progress-text">No tasks yet</p>
+      <div id="progress-bar" class="progress-bar" role="progressbar" aria-label="Completed tasks" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <div id="progress-fill" class="progress-fill"></div>
+      </div>
+    </div>
+
+    <!-- Add task form -->
     <form id="task-form" class="task-form">
-      <input
-        type="text"
-        id="task-input"
-        class="task-input"
-        placeholder="Add a new task..."
-        autocomplete="off"
-        maxlength="100"
-      >
-      <button type="submit" id="add-btn" class="add-btn">Add task</button>
+      <div class="form-row">
+        <input
+          type="text"
+          id="task-input"
+          class="task-input"
+          placeholder="Add a new task..."
+          autocomplete="off"
+          maxlength="100"
+        >
+        <button type="submit" id="add-btn" class="add-btn">Add task</button>
+      </div>
+      <div class="form-options">
+        <label class="option">
+          Priority
+          <select id="priority-select" class="select">
+            <option value="low">Low</option>
+            <option value="medium" selected>Medium</option>
+            <option value="high">High</option>
+          </select>
+        </label>
+        <label class="option">
+          Due date
+          <input type="date" id="due-input" class="date-input">
+        </label>
+      </div>
     </form>
 
     <!-- Filter buttons -->
@@ -34,10 +61,8 @@
     <!-- Tasks will be added here by JavaScript -->
     <ul id="task-list" class="task-list"></ul>
 
-    <!-- Shown when there is nothing to display -->
     <p id="empty-message" class="empty-message">No tasks yet. Add your first task above.</p>
 
-    <!-- Footer: task count and clear button -->
     <div class="app-footer">
       <span id="task-count" class="task-count">0 tasks left</span>
       <button type="button" id="clear-completed" class="clear-btn">Clear completed</button>
